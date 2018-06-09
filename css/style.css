@@ -50,24 +50,32 @@ table {
 }
 
 /*
-영문 제목: "Bowlby One SC"
+영문 제목: "Passion One"
 영문 손글씨: "Gloria Hallelujah"
-한글 제목: "Passion One"
+본문 강조: "Black Han Sans"
 한글 본문: "Gothic A1"
 */
 
-* {text-decoration: none; color:white;}
+a, img {text-decoration: none; color:white;}
 
-body {background-color: black; font-size: 15px; font-family: "Gothic A1", sans-serif;}
+img {font-size: 0; vertical-align: middle;}
+
+body {min-width: 1200px; font-size: 15px; font-family: "Gothic A1", sans-serif; color: #d2d2d2;
+        line-height: 25px; font-weight: 200; background-color: black;}
 /*-----------------------------------------------*/
 
-header {position: fixed; top: 0; width: 100%; height: 160px; min-width: 1000px; background-color: #000;}
+header {background-color: #000; width: 100%; min-width: 1200px;}
 
-#title-logo {display: block; float: left; height: 120px; width: auto; padding: 20px 39px;}
+/*---header-contents---*/
+#fixed {position: fixed; top: 0; width: 100%; height: 160px; width: 100%; min-width: 1100px; background-color: #000; z-index: 1000;}
+
+/*--logo--*/
+#title-logo {display: block; float: left; height: 100px; width: auto; padding: 30px 39px;}
 #title-logo img {height: 100%;}
 					
 #title-logo:hover {background-color:rgba(255, 255, 255, 0.3);}
 
+/*--menu--*/
 #menu {float: right; text-align: center;}
 #menu > li {display: inline-block; vertical-align: top; width: 200px;}
 #menu .gnb {display: block; width: 200px; height: 160px; line-height: 160px; font-family: "Passion One", sans-serif;
@@ -85,4 +93,88 @@ header {position: fixed; top: 0; width: 100%; height: 160px; min-width: 1000px; 
 #menu li ul li:first-child {padding-top: 18px;}
 #menu li ul li:last-child {padding-bottom: 18px;}
 
-#menu::after {content: ""; display: block; clear: both;}
+#menu::after {content: ""; display: block; position: relative; clear: both;}
+
+/*--header-image--*/
+#header-image-gallery {position: relative; left: 0; padding-top: 160px; width: 100%; height: auto; min-width: 1200px; cursor: pointer;}
+
+#header-image-gallery:before {content: ""; display: inline-block; position: absolute; width: 100%; height: 100%; margin-top: -160px;
+        font-size: 0; background-color: #000; opacity: 0.5; transition: height 250ms ease-in-out;}
+
+#header-image-gallery:hover:before {height: 159px;}
+
+#header-image-gallery li {display: inline-block; opacity: 0; transition: opacity 200ms;}
+#header-image-gallery li+li {position: absolute; top: 160px; left: 0;}
+#header-image-gallery li.selected {opacity: 1;}
+
+#header-image-gallery li img {width: 100%; display: inline-block;}
+
+/*---------------------section---------------------*/
+section {padding-top: 160px;}
+
+article {position: relative; width: 100%; min-width: 1200px; padding-top: 160px;}
+
+article.box {width: 1200px; margin: 0 auto;}
+
+section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", sans-serif; font-size: 40px; line-height: 50px; text-transform: uppercase;}
+
+#movie h3 {color: #ebb010;}
+#music h3 {color: #b60b0b;}
+#lines h3 {color: #1a95ba;}
+
+/*----movie*/
+/*plot-summary*/
+#movie h4 {width: 30%; text-align: center; font-family: "Passion One", sans-serif;
+            font-size: 28px; line-height: 40px; color: #000; background-color: #ebb010;}
+
+#plot-summary .text-box {width: 80%; padding: 20px; box-sizing: border-box;}
+#plot-summary .text-box h5 {font-family: "Black Han Sans", sans-serif; font-size: 25px; color: #ebb010; margin-bottom: 20px;}
+
+#plot-summary .text-box ul {margin-bottom: 20px;font-size: 17px; line-height: 28px; color: #fff;}
+#plot-summary .text-box span {margin-right: 10px; color: #ebb010;}
+
+/*storyline*/
+#storyline h4 {}
+
+#story-view-box {width: 968px; height: 370px; margin: 70px auto 0; overflow: hidden;}
+#story-container {width: 900%;}
+.story-box {display: inline-block; width: 968px; height: 370px;}
+
+.story-box .text-box {position: relative; top: -146px; left: 460px; display: inline-block;
+                    width: 500px; height: 250px; word-break: keep-all;
+                        background-color: #232323; overflow: hidden; box-shadow: 8px 8px 0 #ebb010;}
+
+.story-box .text-box h5 {margin: 20px 0 0 20px; font-family: "Black Han Sans", sans-serif; font-size: 25px; color: #ebb010;}
+.story-box .text-box .text-pos {display: inline-block; position: absolute; top: 50%; width: 460px;
+                                margin: 18px 0 0 20px; transform: translateY(-50%);}
+.story-box .text-box p {width: 460px; text-align: justify; }
+.story-box .text-box p+p {margin-top: 5px;}
+
+/*character*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
