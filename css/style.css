@@ -208,11 +208,25 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 .info-box {width: 500px; margin-top: 15px; word-break: keep-all; text-align: justify;}
 #character-container .selected .information {display: block;}
 
+/*music*/
+#music article {padding-top: 0;}
 
+#music article::before {content: ""; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 160px; background-color: #000; z-index: 300;}
 
+#music .music {width: 100%; height: 900px;}
+#music .music .video, #music .music .video iframe {width: 100%; height: 100%;}
 
+#music .copy {font-family: "Gloria Hallelujah", serif; color: #b60b0b; position: absolute; top: 280px; left: 20px; transform: rotate(-25deg); z-index: 300;
+                font-size: 50px; line-height: 80px;}
+#music .text-box {position: absolute; bottom: 30px; right: 30px; width: 500px; height: 650px;
+                    background-color: rgba(0,0,0,0.8); z-index: 250; text-align: center;}
 
+#music .text-box h5 {font-family: "Black Han Sans", sans-serif; font-size: 30px; color: #b60b0b; margin-bottom: 30px;}
+.music-info {width: 380px; padding: 0 60px; line-height: 35px; word-break: keep-all; margin-bottom: 50px;}
 
+#music .text-box a {padding: 5px 40px; color: #b60b0b; font-weight: 700; font-size: 20px; transition: all 300ms;}
+#music .text-box a:hover {background-color: #b60b0b; color: #000;}
+#music .text-box > div {position: relative; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);}
 
 
 
