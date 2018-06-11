@@ -99,7 +99,7 @@ header {background-color: #000; width: 100%; min-width: 1200px;}
 #header-image-gallery {position: relative; left: 0; padding-top: 160px; width: 100%; height: auto; min-width: 1200px; cursor: pointer;}
 
 #header-image-gallery:before {content: ""; display: inline-block; position: absolute; width: 100%; height: 100%; margin-top: -160px;
-        font-size: 0; background-color: #000; opacity: 0.5; transition: height 250ms ease-in-out;}
+        font-size: 0; background-color: #000; opacity: 0.5; transition: height 250ms ease-in-out; z-index: 500;}
 
 #header-image-gallery:hover:before {height: 159px;}
 
@@ -151,7 +151,7 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 .story-box .text-box p+p {margin-top: 5px;}
 
 #story-btn {width: 100px; position: absolute; left: 50%; margin-left: 505px; margin-top: -370px; font-family: "Black Han Sans", sans-serif; font-size: 20px;}
-#story-btn li {position: relative; width: 50px; height: 50px;}
+#story-btn li {position: relative; width: 50px; height: 50px; text-align: center;}
 #story-btn li a {display: block; width: 100%; height: 100%; color: #363636; transition: color 300ms;}
 #story-btn li a:hover {color: #ebb010;}
 
@@ -169,13 +169,14 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 #luther {background-image: url(../img/luther.jpg); background-position: right; background-size: cover;}
 #mom {background-image: url(../img/mom.jpg); background-position: right; background-size: cover;}
 
+.character {overflow: hidden; transition: width 400ms; cursor: pointer;}
+
 .character .name {width: 100%; height: 100%; text-align: center;
                     position: relative; top: 50%; transform: translateY(-50%);
                      background-color: rgba(0, 0, 0, 0.7); color: #fff; transition: all 300ms;}
 
 .character .name p {position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); width: 180px;
                     font-family: "Black Han Sans", sans-serif; font-size: 28px; line-height: 35px; font-weight: 100; color: #ebb010; transition: all 300ms;}
-.information {display: none;}
 
 .character:hover .name {background-color: rgba(0,0, 0, 0)}
 .character:hover .name p {color: #fff;}
@@ -185,17 +186,30 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 
 .character .close span {overflow: hidden; display: block; position: relative; width: 60px; height: 60px;}
 
-.character .close span::before, .character .close span::after {content: ""; display: block; position: absolute; top: 50%; left: 50%;  width: 200%; height: 2px; background-color: #fff;}
-
+.character .close span::before, .character .close span::after {content: ""; display: block; position: absolute; top: 50%; left: 50%;  width: 200%; height: 3px; background-color: #232323;}
 
 .character .close span::before {transform: translateX(-50%) translateY(-50%) rotate(45deg);}
 
 .character .close span::after {transform: translateX(-50%) translateY(-50%) rotate(135deg);}
 
-#music article {padding-top: 0;}
-.music {width: 100%;}
-#tear-me-down > div {width: 100%;}
-#tear-me-down > div iframe {height: 800px; width: 100%;}
+#character-container .selected {cursor: default;}
+
+#character-container .selected .close {display: block;}
+#character-container .selected .name {display: none;}
+
+.information {display: none; background-color: #232323; padding: 25px;}
+
+#yitzhak .information, #tommy .information, #hedwig .information {position: absolute; bottom: 30px; right: 30px;  box-shadow: 10px 10px 0 #ebb010;}
+#luther .information, #mom .information {position: absolute; bottom: 30px; left: 30px; box-shadow: -10px 10px 0 #ebb010;}
+
+.information h5 {margin-bottom: 30px; font-family: "Black Han Sans", sans-serif; font-size: 30px; color: #ebb010;}
+.actor {font-size: 18px; font-weight: 500; color: #fff;}
+.actor span {margin-left: 10px; font-size: 14px;}
+.info-box {width: 500px; margin-top: 15px; word-break: keep-all; text-align: justify;}
+#character-container .selected .information {display: block;}
+
+
+
 
 
 

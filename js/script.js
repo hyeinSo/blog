@@ -1,9 +1,27 @@
+/*header*/
+var $headerGallery = document.getElementById("header-image-gallery");
+var $headerImage = $headerGallery.querySelectorAll(".header-image");
 
+var selectedImage = 0;
 
+function gallery ()
+{
+    console.log("click")
+    for (var i = 0; i < $headerImage.length; i++)
+    {
+        $headerImage[i].style.opacity = "0"
+    }
+    selectedImage = selectedImage+1
+    $headerImage[selectedImage].style.opacity = "1"
+    if (selectedImage === $headerImage.length - 1)
+    {
+        selectedImage = -1;
+    }
+}
 
+$headerGallery.addEventListener("click", gallery);
 
-
-
+//-------------------------------------------------------------------------
 
 /*storyline*/
 var $gallery = document.getElementById('storyline');
@@ -32,7 +50,6 @@ function galleryResize()
 }
 function gallerySlide()
 {
-    //각 리스트의 격차에 따른 속도 분배.
     var duration = 400 + 100 * Math.abs(_cuId - _exId);
     $viewContainer.style.transform = 'translate3d('+ _galleryW * _cuId * -1 + 'px, 0, 0)';
     $viewContainer.style.transitionProperty = 'transform';
@@ -75,7 +92,6 @@ function listClick(id){
 //초기화.
 function init()
 {
-    console.log('초기화');
     galleryResize();
     for(var i = 0; i < $listItem.length; i++)
     {
@@ -83,4 +99,83 @@ function init()
     }
 }
 init();
+
+//-------------------------------------------------------------------------
+
+/*character*/
+
+var $menu = document.getElementById('character-container');
+var $menuItems = $menu.querySelectorAll('.character');
+var $menuItemsEl = $menu.querySelectorAll('.name');
+var _max = $menuItems.length;
+var _isOpen = false;
+var _isAni = false;
+
+function menu(id)
+    {
+        var $close = $menuItems[id].querySelector('.close');
+        function onClickMenu(e)
+        {
+            e.preventDefault();
+            var $parent = this.parentElement;
+            //*****
+            if(_isAni) return;
+            if(!$parent.classList.contains('selected'))
+            {
+                menuItemClassReset();
+                $parent.classList.add('selected');
+                _isOpen = true;
+                _isAni = true; 
+                    
+                for(var i = 0; i < _max; i++)
+                {
+                    var width = 0;
+                    if(i === id)
+                    {
+                        width = "100%"
+                    }else{
+                        width = "0"
+                    }
+                        $menuItems[i].style.width = width;        
+                }
+                    setTimeout(function()
+                    {
+                        _isAni = false;
+                    }, 300);
+            }        
+        }   
+            function onClickMenuClose(e)
+            {
+                e.preventDefault();
+                var $parent = this.parentElement;
+                if($parent.classList.contains('selected'))
+                {
+                    _isOpen = false;
+                    $parent.classList.remove('selected');
+                    for(var i = 0; i < _max; i++){
+                        width = "20%"
+                        $menuItems[i].style.width = width;
+                    }
+                }
+
+            }
+            $menuItemsEl[id].addEventListener('click', onClickMenu);
+            $close.addEventListener('click', onClickMenuClose);
+        }
+    
+for(var i = 0; i < _max; i++){
+    menu(i);
+}
+function menuItemClassReset(){
+    for(var i = 0; i < _max; i++){
+        $menuItems[i].classList.remove('selected');
+    }
+}
+
+function onResize(){
+    $menu.classList.add('resize');
+    _winW = window.innerWidth;
+}
+onResize();
+window.addEventListener('resize', onResize);
 
