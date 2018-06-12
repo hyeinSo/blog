@@ -226,7 +226,8 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
                 font-size: 50px; line-height: 80px; /*background: linear-gradient(to right,#000,transparent);*/
                 background-color: #b60b0b; padding: 0 30px; height: 80px;}
 #music .copy span {display: block; transform: rotate(8deg); margin-top: -40px;}
-#hedwigs-lament-exquisite-corpse .copy span {display: block; transform: rotate(8deg); margin-top: 0px;}
+
+#hedwigs-lament-exquisite-corpse .copy span, #midnight-radio .copy span { margin-top: 0px;}
 
 
 #music .text-box {position: absolute; bottom: 45px; right: 30px; width: 500px; height: 630px;
