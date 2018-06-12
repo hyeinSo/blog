@@ -6,13 +6,19 @@ var selectedImage = 0;
 
 function gallery ()
 {
-    console.log("click")
+    selectedImage++
+  
     for (var i = 0; i < $headerImage.length; i++)
     {
-        $headerImage[i].style.opacity = "0"
-    }
-    selectedImage = selectedImage+1
-    $headerImage[selectedImage].style.opacity = "1"
+        if(i === selectedImage)
+        {
+            $headerImage[i].style.opacity = "1";
+        }
+        else
+        {
+            $headerImage[i].style.opacity = "0";
+        }
+    }   
     if (selectedImage === $headerImage.length - 1)
     {
         selectedImage = -1;
