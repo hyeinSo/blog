@@ -29,6 +29,92 @@ $headerGallery.addEventListener("click", gallery);
 
 //-------------------------------------------------------------------------
 
+/*menu*/
+var $gnbMenu = document.getElementById("menu");
+var $gnbMenuItem = $gnbMenu.querySelectorAll (".menus");
+
+var _add = true;
+var _remove = false;
+
+
+function addSelected ()
+{
+    var $twoDepthItemReset = $gnbMenu.querySelectorAll("li");
+
+    for (var i = 0 ; i < $gnbMenuItem.length; i++)
+    {
+        for (var j = 0; j < $twoDepthItemReset.length; j++)
+        {
+            $twoDepthItemReset[j].classList.remove("ani");
+        }
+    }
+    var $el = this;
+
+    _add = true;
+    //console.log($el);
+       
+    for (var i = 0; i < $gnbMenuItem.length; i++)
+    {
+        if ($el === $gnbMenuItem[i])
+        {
+            $gnbMenuItem[i].classList.add("selected");
+
+            var $twoDepth = $gnbMenuItem[i].querySelector("ul");
+            var $twoDepthItem = $twoDepth.querySelectorAll("li");
+
+            var l = 0
+            function menuAni ()
+            {
+                console.log("1")
+                if (_add)
+                    { 
+                    if (l < $twoDepthItem.length)
+                    {
+                    $twoDepthItem[l].classList.add("ani");
+                    console.log("2")
+                    }
+                    else
+                    {clearInterval(menuAni);}
+                    l++
+                }else{l = 0;}
+            }
+            
+            var countTimer = setInterval(menuAni, 50);
+        }   
+    }
+}
+//////////////////////////////////////////////////////////////
+function removeSelected ()
+{
+    _add = false;
+    for (var i = 0; i < $gnbMenuItem.length; i++)
+    {
+        if ($gnbMenuItem[i].classList.contains("selected"))
+        {
+            $gnbMenuItem[i].classList.remove("selected");
+
+            var $twoDepth = $gnbMenuItem[i].querySelector("ul");
+            var $twoDepthItem = $twoDepth.querySelectorAll("li");
+            for (var i = 0; i < $twoDepthItem.length; i++)
+            {
+                if ($twoDepthItem[i].classList.contains("ani"))
+                {$twoDepthItem[i].classList.remove("ani");}
+            }
+        }
+    }
+    return _add;
+}
+//////////////////////////////////////////////////////////////    
+for (var i = 0; i < $gnbMenuItem.length; i++)
+{
+    $gnbMenuItem[i].addEventListener ("mouseenter", addSelected);
+//////////////////////////////////////////////////////////////
+    $gnbMenuItem[i].addEventListener ("mouseleave", removeSelected);
+}
+//////////////////////////////////////////////////////////////
+
+//-------------------------------------------------------------------------
+
 /*storyline*/
 var $gallery = document.getElementById('storyline');
 var $view = $gallery.querySelector('#story-view-box');
@@ -126,7 +212,7 @@ function menu(id)
             var $parent = this.parentElement;
             //*****
             if(_isAni) return;
-            if(!$parent.classList.contains('selected'))
+            if(!$parent.classList.contains('selected')) //////////////////////////////
             {
                 menuItemClassReset();
                 $parent.classList.add('selected');
