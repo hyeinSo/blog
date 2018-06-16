@@ -65,7 +65,6 @@ function addSelected ()
             var l = 0
             function menuAni ()
             {
-                console.log("1")
                 if (_add)
                     { 
                     if (l < $twoDepthItem.length)
@@ -209,9 +208,9 @@ function characterMenu(id)
         {
             e.preventDefault();
             var $parent = this.parentElement;
-            //*****
+            
             if(_isAni) return;
-            if(!$parent.classList.contains('selected')) //////////////////////////////
+            if(!$parent.classList.contains('selected'))
             {
                 menuItemClassReset();
                 $parent.classList.add('selected');
@@ -263,13 +262,6 @@ function menuItemClassReset(){
     }
 }
 
-function onResize(){
-    $menu.classList.add('resize');
-    _winW = window.innerWidth;
-}
-onResize();
-window.addEventListener('resize', onResize);
-
 //-------------------------------------------------------------------------
 
 /*music*/
@@ -281,7 +273,7 @@ var koBtn = $musicEl.querySelectorAll(".language-ko");
 var enBtn = $musicEl.querySelectorAll(".language-en");
 var allBtn = $musicEl.querySelectorAll(".language-all");
 
-console.log($lyricsBtn);
+//console.log($lyricsBtn);
 
 function lyricsView (id)
 {
@@ -301,8 +293,13 @@ function lyricsView (id)
         {
             $greatGrandparents.classList.remove("lyrics-open");
             $el.innerHTML = "가사 보기";
+            ///////////////////////////////////////////////////////////
 
             var $lyricsBox = $musicEl.querySelectorAll(".lyrics-box")[id];
+            var $lyricsContainer = $lyricsBox.querySelector(".lyrics-container");
+
+            $lyricsContainer.scrollTo(0, 0);
+
             if ($lyricsBox.classList.contains("ko-only"))
             {
                 $lyricsBox.classList.remove("ko-only");
@@ -313,7 +310,7 @@ function lyricsView (id)
             }
         }
     }
-
+////////////////////////////////////////////////////////
     function languageChoiceKo ()
     {
         var $el = this; var $parent = $el.parentElement;
@@ -364,4 +361,53 @@ function lyricsView (id)
 for (var i = 0; i < $lyricsBtn.length; i++)
 { 
     lyricsView(i);
+}
+
+//-------------------------------------------------------------------------
+
+/*lines*/
+var $linesEl = document.getElementById("lines");
+var $linesAniBtn = $linesEl.querySelectorAll("a");
+
+function linesView (id)
+{
+    function linesAni(e)
+    {
+        e.preventDefault();
+        //console.log("linesAni");
+        var $el = this; var $parent = $el.parentElement;
+        var $textEl = $parent.querySelectorAll(".line-text")
+
+        if (!$parent.classList.contains("play"))
+        {
+            $parent.classList.add("play");
+            
+            var aniNumber = -1;
+            function addLineAni ()
+            {
+                aniNumber++
+                if (aniNumber < $textEl.length)
+                {
+                    $textEl[aniNumber].classList.add("line-ani");
+                }
+                if(aniNumber === $textEl.length+1)
+                {
+                    for(var i=0; i < $textEl.length; i++)
+                    {
+                        $textEl[i].classList.remove("line-ani");
+                    }
+                    $parent.classList.remove("play");
+                    clearInterval(lineAniTimer);
+                } 
+            }
+            var lineAniTimer = setInterval(addLineAni, 700)
+        }
+
+    }
+    $linesAniBtn[id].addEventListener("click", linesAni);
+}
+
+for (var i = 0; i < $linesAniBtn.length; i++)
+{ 
+    linesView(i);
 }

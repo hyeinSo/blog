@@ -290,6 +290,13 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 .en {overflow: hidden; font-size: 17px; color: #fff; transition: all 200ms;}
 .ko {margin-top: 8px; overflow: hidden; transition: all 200ms;}
 
+.lyrics-box ul li.language-all {background-color: #b60b0b; color: #000; cursor: default;}
+
+.ko-only ul li.language-ko {background-color: #b60b0b; color: #000; cursor: default;}
+.en-only li.language-en {background-color: #b60b0b; color: #000; cursor: default;}
+
+.ko-only > ul > li:last-child, .en-only > ul > li:last-child {color: #b60b0b; background-color: transparent; cursor: pointer;}
+
 .ko-only .ko {margin-top: 0; color: #fff;}
 .ko-only .en {height: 0;}
 
@@ -299,11 +306,7 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 .lyrics-box ul li {display: inline-block; padding: 5px 15px; font-size: 18px; font-weight: 600; color: #b60b0b; cursor: pointer; transition: all 300ms;}
 .lyrics-box ul li:hover {background-color: #b60b0b; color: #000;}
 .lyrics-box ul li+li {margin-left: 10px;}
-/*
-#movie h3 {color: #ebb010;}
-#music h3 {color: #b60b0b;}
-#lines h3 {color: #1a95ba;}
-*/
+
 
 #music .text-box h4 {font-family: "Black Han Sans", sans-serif; font-size: 30px; color: #b60b0b; margin-bottom: 30px; line-height: 40px;}
 #music .text-box h4 span {font-family: "Gothic A1", sans-serif; font-size: 16px; font-weight: 600; color: #800808;}
@@ -340,8 +343,6 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 #lines li strong {margin-bottom: 10px; color: #fff; font-weight: 600;}
 #lines li p span {color: #1a95ba;}
 
-#lines li:hover > div {opacity: 0;}
-
 #line1 li:first-child {background-image: url("../img/lines011.jpg");}
 #line1 li:nth-child(2) {background-image: url("../img/lines012.jpg");}
 #line1 li:nth-child(3) {background-image: url("../img/lines013.jpg");}
@@ -357,6 +358,30 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 #line3 li:nth-child(3) {background-image: url("../img/lines033.jpg");}
 #line3 li:last-child {background-image: url("../img/lines034.jpg");}
 
+/*버튼*/
+#lines a {display: inline-block; width: 0; height: 0; margin: 20px 0;
+        border-left: 35px solid #d2d2d2; border-top: 20px solid transparent; border-bottom: 20px solid transparent;
+        font-size: 0; color: transparent; transition: all 300ms;}
+#lines a:hover {border-left-color: #1a95ba;}
+
+#lines li:hover .line-text {display: none;}
+#lines .play li:hover .line-text {display: block;}
+#lines .play a {border-left-color: #1a95ba; cursor: default;}
+#lines .line-ani {animation: lines 400ms ease-in-out; opacity: 0;}
+
+@keyframes lines
+{
+    0%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+/*
+#movie h3 {color: #ebb010;}
+#music h3 {color: #b60b0b;}
+#lines h3 {color: #1a95ba;}
+*/
+
+/*footer*/
 footer {width: 100%; margin-top: 240px; text-align: center; padding: 70px 0; color: #000; color: #000; background-color: #f9126a}
 
 footer p:first-child {margin-bottom: 10px; font-family: "Passion One", sans-serif; font-size: 40px;}
