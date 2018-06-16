@@ -195,7 +195,6 @@ init();
 //-------------------------------------------------------------------------
 
 /*character*/
-
 var $menu = document.getElementById('character-container');
 var $menuItems = $menu.querySelectorAll('.character');
 var $menuItemsEl = $menu.querySelectorAll('.name');
@@ -203,7 +202,7 @@ var _max = $menuItems.length;
 var _isOpen = false;
 var _isAni = false;
 
-function menu(id)
+function characterMenu(id)
     {
         var $close = $menuItems[id].querySelector('.close');
         function onClickMenu(e)
@@ -256,7 +255,7 @@ function menu(id)
         }
     
 for(var i = 0; i < _max; i++){
-    menu(i);
+    characterMenu(i);
 }
 function menuItemClassReset(){
     for(var i = 0; i < _max; i++){
@@ -271,3 +270,98 @@ function onResize(){
 onResize();
 window.addEventListener('resize', onResize);
 
+//-------------------------------------------------------------------------
+
+/*music*/
+var $musicEl = document.getElementById("music");
+
+var $lyricsBtn = $musicEl.querySelectorAll("a");
+
+var koBtn = $musicEl.querySelectorAll(".language-ko");
+var enBtn = $musicEl.querySelectorAll(".language-en");
+var allBtn = $musicEl.querySelectorAll(".language-all");
+
+console.log($lyricsBtn);
+
+function lyricsView (id)
+{
+    function openCloseLyrics (e)
+    {
+        e.preventDefault();
+        var $el = this; var $parent = $el.parentElement;
+        var $grandparents =  $parent.parentElement; var $greatGrandparents =  $grandparents.parentElement;
+        
+        //console.log("openCloseLyrics")
+        if(!$greatGrandparents.classList.contains("lyrics-open"))
+        {
+            $greatGrandparents.classList.add("lyrics-open");
+            $el.innerHTML = "가사 닫기";
+        }
+        else
+        {
+            $greatGrandparents.classList.remove("lyrics-open");
+            $el.innerHTML = "가사 보기";
+
+            var $lyricsBox = $musicEl.querySelectorAll(".lyrics-box")[id];
+            if ($lyricsBox.classList.contains("ko-only"))
+            {
+                $lyricsBox.classList.remove("ko-only");
+            }
+            else if ($lyricsBox.classList.contains("en-only"))
+            {
+                $lyricsBox.classList.remove("en-only");
+            }
+        }
+    }
+
+    function languageChoiceKo ()
+    {
+        var $el = this; var $parent = $el.parentElement;
+        var $grandparents =  $parent.parentElement;
+        if (!$grandparents.classList.contains("ko-only"))
+        {
+            $grandparents.classList.add("ko-only");
+            if ($grandparents.classList.contains("en-only"))
+            {
+                $grandparents.classList.remove("en-only");
+            }
+        }
+    }
+    function languageChoiceEn ()
+    {
+        var $el = this; var $parent = $el.parentElement;
+        var $grandparents =  $parent.parentElement;
+        if (!$grandparents.classList.contains("en-only"))
+        {
+            $grandparents.classList.add("en-only");
+            if ($grandparents.classList.contains("ko-only"))
+            {
+                $grandparents.classList.remove("ko-only");
+            }
+        }
+    }
+    function languageChoiceAll ()
+    {
+        var $el = this; var $parent = $el.parentElement;
+        var $grandparents =  $parent.parentElement;
+        if ($grandparents.classList.contains("ko-only"))
+        {
+            $grandparents.classList.remove("ko-only");
+        }
+        else if ($grandparents.classList.contains("en-only"))
+        {
+            $grandparents.classList.remove("en-only");
+        }
+    }
+
+    $lyricsBtn[id].addEventListener("click", openCloseLyrics);
+
+    koBtn[id].addEventListener("click", languageChoiceKo)
+    enBtn[id].addEventListener("click", languageChoiceEn)
+    allBtn[id].addEventListener("click", languageChoiceAll)
+}
+
+for (var i = 0; i < $lyricsBtn.length; i++)
+{ 
+    lyricsView(i);
+}

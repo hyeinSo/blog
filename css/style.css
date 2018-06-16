@@ -227,7 +227,7 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 
 #character-container .selected {cursor: default;}
 
-#character-container .selected .close {display: block;}
+#character-container .selected .close {display: block; animation: character 500ms ease-in-out;}
 #character-container .selected .name {display: none;}
 
 .information {display: none; background-color: #232323; padding: 25px;}
@@ -239,8 +239,19 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 .actor {font-size: 18px; font-weight: 500; color: #fff;}
 .actor span {margin-left: 10px; font-size: 14px;}
 .info-box {width: 500px; margin-top: 15px; word-break: keep-all; text-align: justify;}
-#character-container .selected .information {display: block;}
+#character-container .selected .information {display: block; animation: character 500ms ease-in-out;}
 
+@keyframes character
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
 /*music*/
 #music article {padding-top: 0;}
 
@@ -264,7 +275,35 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 
 
 #music .text-box {position: absolute; bottom: 45px; right: 30px; width: 500px; height: 630px;
-                    background-color: rgba(0,0,0,0.8); z-index: 250; text-align: center;}
+                    background-color: rgba(0,0,0,0.8); z-index: 400; text-align: center;}
+/*가사*/
+.lyrics-box {position: absolute; bottom: 45px; right: 530px; width: 0; height: 630px; overflow: hidden; transition: all 300ms;
+                    background-color: rgba(0,0,0,0.8); z-index: 250; text-align: center; box-sizing: border-box; z-index: 400;}
+
+.lyrics-open .lyrics-box {display: block; position: absolute; bottom: 45px; right: 530px; width: 500px;}
+
+.lyrics-box .lyrics-container {width: 500px; height: 530px; margin: 25px 0 0; overflow-x: hidden; overflow-y: scroll; -ms-overflow-style: none;}
+.lyrics-box .lyrics-container::-webkit-scrollbar {display: none;}
+
+.lyrics:last-child {margin-bottom: 265px;}
+.lyrics+.lyrics {margin-top: 20px;}
+.en {overflow: hidden; font-size: 17px; color: #fff; transition: all 200ms;}
+.ko {margin-top: 8px; overflow: hidden; transition: all 200ms;}
+
+.ko-only .ko {margin-top: 0; color: #fff;}
+.ko-only .en {height: 0;}
+
+.en-only .ko {margin-top: 0; height: 0;}
+
+.lyrics-box ul {width: 500px;  margin-top: 22px;}
+.lyrics-box ul li {display: inline-block; padding: 5px 15px; font-size: 18px; font-weight: 600; color: #b60b0b; cursor: pointer; transition: all 300ms;}
+.lyrics-box ul li:hover {background-color: #b60b0b; color: #000;}
+.lyrics-box ul li+li {margin-left: 10px;}
+/*
+#movie h3 {color: #ebb010;}
+#music h3 {color: #b60b0b;}
+#lines h3 {color: #1a95ba;}
+*/
 
 #music .text-box h4 {font-family: "Black Han Sans", sans-serif; font-size: 30px; color: #b60b0b; margin-bottom: 30px; line-height: 40px;}
 #music .text-box h4 span {font-family: "Gothic A1", sans-serif; font-size: 16px; font-weight: 600; color: #800808;}
@@ -275,6 +314,8 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 #music .text-box a {padding: 5px 40px; color: #b60b0b; font-weight: 700; font-size: 20px; transition: all 300ms;}
 #music .text-box a:hover {background-color: #b60b0b; color: #000;}
 #music .text-box > div {position: relative; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);}
+
+
 
 /*lines*/
 #lines article {padding-top: 100px; text-align: center;}
