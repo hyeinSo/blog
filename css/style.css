@@ -158,7 +158,18 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
             font-size: 28px; line-height: 40px; color: #000; background-color: #ebb010;}
 
 /*plot-summary*/
-#plot-summary .text-box {width: 80%; padding: 20px; margin-top: 50px; box-sizing: border-box;}
+#plot-summary-container {position: relative; margin-top: 60px; transform: translateX(-360px)}
+#poster-box {display: inline-block; vertical-align: top;}
+#poster-box ul {width: 360px; display: inline-block;}
+#poster-box li {display: inline-block; width: 120px;}
+#poster-box img {width: 100%;}
+#poster-box h5 {display: inline-block; height: 344px; width: 40px; position: relative; vertical-align: top;
+				background-color: #000; text-align: center; cursor: pointer; color: #ebb010;}
+#poster-box h5:hover {background-color: #ebb010; color: #000;}
+#poster-box h5 div {transform: rotateZ(90deg); position: relative; width: auto; height: auto;}
+#poster-box h5 p {font-family: "Black Han Sans", sans-serif; font-size: 25px; width: 344px; height: auto;}
+
+#plot-summary .text-box {width: auto; margin-left: 30px; display: inline-block; vertical-align: bottom;}
 #plot-summary .text-box h5 {font-family: "Black Han Sans", sans-serif; font-size: 25px; color: #ebb010; margin-bottom: 20px;}
 
 #plot-summary .text-box ul {margin-bottom: 20px;font-size: 17px; line-height: 28px; color: #fff;}
@@ -375,11 +386,6 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
     100%{opacity: 0;}
 }
 
-/*
-#movie h3 {color: #ebb010;}
-#music h3 {color: #b60b0b;}
-#lines h3 {color: #1a95ba;}
-*/
 
 /*footer*/
 footer {width: 100%; margin-top: 240px; text-align: center; padding: 70px 0; color: #000; color: #000; background-color: #f9126a}
