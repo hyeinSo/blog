@@ -50,15 +50,15 @@ table {
 }
 
 /*
-영문 제목: "Passion One"
+메뉴: "Passion One"
 영문 손글씨: "Gloria Hallelujah"
-본문 강조: "Black Han Sans"
+제목: "Black Han Sans"
 한글 본문: "Gothic A1"
 */
 
 a, img {text-decoration: none; color:white;}
 
-img {font-size: 0; vertical-align: middle;}
+img {font-size: 0; vertical-align: bottom;}
 
 body {min-width: 1200px; font-size: 15px; font-family: "Gothic A1", sans-serif; color: #d2d2d2;
         line-height: 25px; font-weight: 200; background-color: #000; /*overflow-x: hidden;*/}
@@ -175,7 +175,6 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 
 #poster-box li {display: inline-block; width: 140px; transform: rotateY(90deg); transition: all 500ms;}
 #poster-box li.poster-ani {transform: rotateY(0); animation: poster 500ms ease-in-out;}
-#poster-box li.poster-img {transform: rotateY(0);}
 
 @keyframes poster
 {
@@ -323,7 +322,7 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 .lyrics-box .lyrics-container {width: 500px; height: 530px; margin: 25px 0 0; overflow-x: hidden; overflow-y: scroll; -ms-overflow-style: none;}
 .lyrics-box .lyrics-container::-webkit-scrollbar {display: none;}
 
-.lyrics-box em {font-style: italic; color: #a3a3a3;}
+.lyrics-box em {font-style: italic; color: #888;}
 
 .lyrics:last-child {margin-bottom: 265px;}
 .lyrics+.lyrics {margin-top: 20px;}
@@ -337,7 +336,7 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 
 .ko-only > ul > li:last-child, .en-only > ul > li:last-child {color: #b60b0b; background-color: transparent; cursor: pointer;}
 
-.ko-only .ko {margin-top: 0; color: #fff;}
+.ko-only .ko {margin-top: 0; color: #fff; font-size: 16px;}
 .ko-only .en {height: 0;}
 
 .en-only .ko {margin-top: 0; height: 0;}
@@ -417,13 +416,15 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 
 
 /*footer*/
-footer {width: 100%; margin-top: 240px; text-align: center; padding: 70px 0; color: #000; color: #000; background-color: #f9126a}
+footer {padding: 50px 0; margin-top: 250px; background-color: #000; text-align: center;}
 
-footer p:first-child {margin-bottom: 10px; font-family: "Passion One", sans-serif; font-size: 40px;}
+footer p:first-child {font-family: "Passion One", sans-serif; font-size: 60px; 
+						color: #ebb010; text-shadow: 10px 10px 0 #f9126a; transform: rotateZ(-3deg);}
+						
 
-footer p:last-child {font-size: 13px; font-weight: 100;}
-
-
+footer div p:last-child {width: 300px; margin: 50px auto 0; padding: 10px 0;font-weight: 700; 
+						color: #ebb010; background-color: #1a95ba;  
+ 						transform: rotateZ(1deg); box-shadow: 5px 5px 0 #ebb010;}
 
 
 

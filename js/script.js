@@ -160,11 +160,6 @@ function openClosePoster ()
             }
             else
             {
-                for (var i = 0; i < $posterList.length; i++)
-                {
-                    $posterList[i].classList.add("poster-img");
-                    $posterList[i].classList.remove("poster-ani");
-                }
                 _posterAni = false;
                 clearInterval(posterAniTime);
             }
@@ -179,7 +174,7 @@ function openClosePoster ()
         var $posterList =  $posterEl.querySelectorAll("li")
         for (var i = 0; i < $posterList.length; i++)
         {
-            $posterList[i].classList.remove("poster-img");
+            $posterList[i].classList.remove("poster-ani");
         }
         $posterBtn.style.backgroundColor = "transparent"
         _posterAni = true;
