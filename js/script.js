@@ -34,8 +34,6 @@ var $gnbMenu = document.getElementById("menu");
 var $gnbMenuItem = $gnbMenu.querySelectorAll (".menus");
 
 var _add = true;
-var _remove = false;
-
 
 function addSelected ()
 {
@@ -110,7 +108,6 @@ for (var i = 0; i < $gnbMenuItem.length; i++)
 //////////////////////////////////////////////////////////////
     $gnbMenuItem[i].addEventListener ("mouseleave", removeSelected);
 }
-//////////////////////////////////////////////////////////////
 
 //-------------------------------------------------------------------------
 
@@ -172,7 +169,7 @@ function openClosePoster ()
                 clearInterval(posterAniTime);
             }
         }
-        var posterAniTime = setInterval(posterAni, 400);
+        var posterAniTime = setInterval(posterAni, 300);
     }
     ////////////////
     else if ($grandparents.classList.contains("open-poster") && !_posterAni)
