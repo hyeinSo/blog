@@ -114,6 +114,87 @@ for (var i = 0; i < $gnbMenuItem.length; i++)
 
 //-------------------------------------------------------------------------
 
+/*plot summary*/
+var $plotSummaryEl = document.getElementById("plot-summary-container");
+var $posterEl = document.getElementById("poster-box");
+var $posterBtn = $posterEl.querySelector(".poster-btn");
+
+function mouseOver ()
+{
+    var $el = this; var $parent = $el.parentElement;
+    if (!$parent.classList.contains("open-poster"))
+    {
+        $posterEl.style.transform = "translateX(20px)";
+        $posterBtn.style.color = "#ebb010";
+    }
+}
+function mouseOut ()
+{
+    var $el = this; var $parent = $el.parentElement;
+    if (!$parent.classList.contains("open-poster"))
+    {
+        $posterEl.style.transform = "translateX(0px)";
+        $posterBtn.style.color = "#373737";
+    }
+}
+$posterEl.addEventListener("mouseenter", mouseOver);
+$posterEl.addEventListener("mouseleave", mouseOut);
+//////////////////////////////////////////////////////////////
+var _posterAni = true;
+function openClosePoster ()
+{
+    var $el = this; var $parent = $el.parentElement; var $grandparents = $parent.parentElement;
+    if (!$grandparents.classList.contains("open-poster") && _posterAni)
+    {
+        $plotSummaryEl.classList.add("open-poster");
+        $posterEl.style.transform = "translateX(0px)";
+        $posterBtn.style.color = "#000";
+        $posterBtn.style.backgroundColor = "#ebb010";
+
+        var $posterList =  $posterEl.querySelectorAll("li");
+        var posterNumber = -1;
+        function posterAni ()
+        {
+            console.log(posterNumber);
+            posterNumber++
+            if (posterNumber < $posterList.length)
+            {
+                $posterList[posterNumber].classList.add("poster-ani");
+            }
+            else
+            {
+                for (var i = 0; i < $posterList.length; i++)
+                {
+                    $posterList[i].classList.add("poster-img");
+                    $posterList[i].classList.remove("poster-ani");
+                }
+                _posterAni = false;
+                clearInterval(posterAniTime);
+            }
+        }
+        var posterAniTime = setInterval(posterAni, 400);
+    }
+    ////////////////
+    else if ($grandparents.classList.contains("open-poster") && !_posterAni)
+    {
+        $plotSummaryEl.classList.remove("open-poster");
+
+        var $posterList =  $posterEl.querySelectorAll("li")
+        for (var i = 0; i < $posterList.length; i++)
+        {
+            $posterList[i].classList.remove("poster-img");
+        }
+        $posterBtn.style.backgroundColor = "transparent"
+        _posterAni = true;
+    }
+    return _posterAni;
+}
+
+$posterBtn.addEventListener("click", openClosePoster);
+
+
+//-------------------------------------------------------------------------
+
 /*storyline*/
 var $gallery = document.getElementById('storyline');
 var $view = $gallery.querySelector('#story-view-box');
@@ -288,11 +369,7 @@ function lyricsView (id)
         {
             $greatGrandparents.classList.add("lyrics-open");
             $el.innerHTML = "가사 닫기";
-        }
-        else
-        {
-            $greatGrandparents.classList.remove("lyrics-open");
-            $el.innerHTML = "가사 보기";
+
             ///////////////////////////////////////////////////////////
 
             var $lyricsBox = $musicEl.querySelectorAll(".lyrics-box")[id];
@@ -308,6 +385,11 @@ function lyricsView (id)
             {
                 $lyricsBox.classList.remove("en-only");
             }
+        }
+        else
+        {
+            $greatGrandparents.classList.remove("lyrics-open");
+            $el.innerHTML = "가사 보기"; 
         }
     }
 ////////////////////////////////////////////////////////
