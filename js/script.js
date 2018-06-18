@@ -474,7 +474,7 @@ function linesView (id)
                     clearInterval(lineAniTimer);
                 } 
             }
-            var lineAniTimer = setInterval(addLineAni, 700)
+            var lineAniTimer = setInterval(addLineAni, 800)
         }
 
     }

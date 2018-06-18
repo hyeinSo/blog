@@ -413,7 +413,8 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
     0%{opacity: 1;}
     100%{opacity: 0;}
 }
-
+#lines .comment {margin: 5px 0; color: transparent; transition: color 300ms; cursor: default;}
+#lines .play .comment {color: #1a95ba;}
 
 /*footer*/
 footer {padding: 50px 0; margin-top: 250px; background-color: #000; text-align: center;}
