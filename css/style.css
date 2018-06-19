@@ -134,7 +134,7 @@ header {background-color: #000; width: 100%; min-width: 1200px;}
 
 #header-image-gallery:hover:before {height: 159px;}
 
-#header-image-gallery li {display: inline-block; opacity: 0; transition: opacity 200ms;}
+#header-image-gallery li {display: inline-block; opacity: 0; transition: opacity 800ms;}
 #header-image-gallery li+li {position: absolute; top: 160px; left: 0;}
 #header-image-gallery li.selected {opacity: 1;}
 

@@ -25,6 +25,7 @@ function gallery ()
     }
 }
 
+var headerImageGallery = setInterval (gallery, 1800);
 $headerGallery.addEventListener("click", gallery);
 
 //-------------------------------------------------------------------------
