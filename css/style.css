@@ -291,6 +291,8 @@ section h3 {margin-right: 30px; text-align: right; font-family: "Passion One", s
 /*music*/
 #music article {padding-top: 0;}
 
+#music .music::after {content: ""; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: yellow; opacity: 0;}
+
 #music article::before {content: ""; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 160px; background-color: #000; z-index: 300;}
 
 #music .music {width: 100%; height: 900px;}
