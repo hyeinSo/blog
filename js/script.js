@@ -3,39 +3,647 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player1;
+var $musicSection = document.getElementById("music");
+var $playBtn = $musicSection.querySelectorAll(".play");
+var $volumeBtn = $musicSection.querySelectorAll(".volume");
 
+var player1; var player2; var player3;
+var player4; var player5; var player6;
+var player7; var player8; var player0;
 
 function onYouTubeIframeAPIReady()
 {
-    player1 = new YT.Player('track1',
+    player0 = new YT.Player('track1',
     {
         width: '100%',
         height: '100%',
         videoId: 'cuk39tu10tc',
         playerVars:
         {
-            controls: 1,
+            controls: 0,
             autoplay: 0,
             disablekb: 1,
-            iv_load_policy: 3,
-            loop: 0,
+            iv_load_policy: 0,
+            loop: 1,
             playlist: 'cuk39tu10tc',
-            modestbranding: 1,
-            playsinline: 1,
-            showinfo: 1,
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
         },
         events:
         {
             onReady: initialize
         }
     });
-           
+    
+    player1 = new YT.Player('track2',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'VhGnhOG_xMI',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: 'VhGnhOG_xMI',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+
+    player2 = new YT.Player('track3',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'kzH6WBzwaOI',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: 'kzH6WBzwaOI',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+
+    player3 = new YT.Player('track4',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'ZTpk9x4V53Q',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: 'ZTpk9x4V53Q',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+
+    player4 = new YT.Player('track5',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: '740TB17Dsn0',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: '740TB17Dsn0',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+
+    player5 = new YT.Player('track6',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'HloMs6nxhG4',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: 'HloMs6nxhG4',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+
+    player6 = new YT.Player('track7',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'KGz83x-DT20',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: 'KGz83x-DT20',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+
+    player7 = new YT.Player('track8',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'Xc6lEyvesH8',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: 'Xc6lEyvesH8',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+
+    player8 = new YT.Player('track9',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'yMWcPAEpuq4',
+        playerVars:
+        {
+            controls: 0,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 0,
+            loop: 1,
+            playlist: 'yMWcPAEpuq4',
+            modestbranding: 0,
+            playsinline: 0,
+            showinfo: 0,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
 }
+
+var volumeLever1 = 20;
+var volumeLever2 = 60;
+var volumeLever3 = 100;
+
 function initialize()
 {
-    player1.mute();
+    player0.setVolume(volumeLever1);
+    player1.setVolume(volumeLever1);
+    player2.setVolume(volumeLever1);
+    player3.setVolume(volumeLever1);
+    player4.setVolume(volumeLever1);
+    player5.setVolume(volumeLever1);
+    player6.setVolume(volumeLever1);
+    player7.setVolume(volumeLever1);
+    player8.setVolume(volumeLever1);
 }
+
+    var volumeNumber0 = 0; var volumeNumber1 = 0; var volumeNumber2 = 0;
+    var volumeNumber3 = 0; var volumeNumber4 = 0; var volumeNumber5 = 0;
+    var volumeNumber6 = 0; var volumeNumber7 = 0; var volumeNumber8 = 0; 
+
+    var playToggle0 = true; var playToggle1 = true; var playToggle2 = true;
+    var playToggle3 = true; var playToggle4 = true; var playToggle5 = true;
+    var playToggle6 = true; var playToggle7 = true; var playToggle8 = true;
+
+    function playBtnClick ()
+    {
+        if (playToggle0)
+        {
+            player0.playVideo();
+            $playBtn[0].innerHTML = "Pause";
+            playToggle0 = false;
+        }
+        else
+        {
+            player0.pauseVideo();
+            $playBtn[0].innerHTML = "Play";
+            playToggle0 = true;
+        }
+        return playToggle0;
+    }
+    $playBtn[0].addEventListener("click", playBtnClick);
+////////////////////////////////////
+    function playBtnClick1 ()
+    {
+        if (playToggle1)
+        {
+            player1.playVideo();
+            $playBtn[1].innerHTML = "Pause";
+            playToggle1 = false;
+        }
+        else
+        {
+            player1.pauseVideo();
+            $playBtn[1].innerHTML = "Play";
+            playToggle1 = true;
+        }
+        return playToggle1;
+    }
+    $playBtn[1].addEventListener("click", playBtnClick1);
+////////////////////////////////////
+    function playBtnClick2 ()
+    {
+        if (playToggle2)
+        {
+            player2.playVideo();
+            $playBtn[2].innerHTML = "Pause";
+            playToggle2 = false;
+        }
+        else
+        {
+            player2.pauseVideo();
+            $playBtn[2].innerHTML = "Play";
+            playToggle2 = true;
+        }
+        return playToggle2;
+    }
+    $playBtn[2].addEventListener("click", playBtnClick2);
+////////////////////////////////////
+    function playBtnClick3 ()
+    {
+        if (playToggle3)
+        {
+            player3.playVideo();
+            $playBtn[3].innerHTML = "Pause";
+            playToggle3 = false;
+        }
+        else
+        {
+            player3.pauseVideo();
+            $playBtn[3].innerHTML = "Play";
+            playToggle3 = true;
+        }
+        return playToggle3;
+    }
+    $playBtn[3].addEventListener("click", playBtnClick3);
+////////////////////////////////////
+    function playBtnClick4 ()
+    {
+        if (playToggle4)
+        {
+            player4.playVideo();
+            $playBtn[4].innerHTML = "Pause";
+            playToggle4 = false;
+        }
+        else
+        {
+            player4.pauseVideo();
+            $playBtn[4].innerHTML = "Play";
+            playToggle4 = true;
+        }
+        return playToggle4;
+    }
+    $playBtn[4].addEventListener("click", playBtnClick4);
+////////////////////////////////////
+    function playBtnClick5 ()
+    {
+        if (playToggle5)
+        {
+            player5.playVideo();
+            $playBtn[5].innerHTML = "Pause";
+            playToggle5 = false;
+        }
+        else
+        {
+            player5.pauseVideo();
+            $playBtn[5].innerHTML = "Play";
+            playToggle5 = true;
+        }
+        return playToggle5;
+    }
+    $playBtn[5].addEventListener("click", playBtnClick5);
+////////////////////////////////////
+    function playBtnClick6 ()
+    {
+        if (playToggle6)
+        {
+            player6.playVideo();
+            $playBtn[6].innerHTML = "Pause";
+            playToggle6 = false;
+        }
+        else
+        {
+            player6.pauseVideo();
+            $playBtn[6].innerHTML = "Play";
+            playToggle6 = true;
+        }
+        return playToggle6;
+    }
+    $playBtn[6].addEventListener("click", playBtnClick6);
+////////////////////////////////////
+    function playBtnClick7 ()
+    {
+        if (playToggle7)
+        {
+            player7.playVideo();
+            $playBtn[7].innerHTML = "Pause";
+            playToggle7 = false;
+        }
+        else
+        {
+            player7.pauseVideo();
+            $playBtn[7].innerHTML = "Play";
+            playToggle7 = true;
+        }
+        return playToggle7;
+    }
+    $playBtn[7].addEventListener("click", playBtnClick7);
+////////////////////////////////////
+    function playBtnClick8 ()
+    {
+        if (playToggle8)
+        {
+            player8.playVideo();
+            $playBtn[8].innerHTML = "Pause";
+            playToggle8 = false;
+        }
+        else
+        {
+            player8.pauseVideo();
+            $playBtn[8].innerHTML = "Play";
+            playToggle8 = true;
+        }
+        return playToggle8;
+    }
+    $playBtn[8].addEventListener("click", playBtnClick8);
+
+
+
+    function volumeBtnClick ()
+    {
+        
+        if(volumeNumber0 === 0)
+        {
+            player0.setVolume(volumeLever2);
+            $volumeBtn[0].style.color = "#874444"
+            volumeNumber0++
+        }
+        else if (volumeNumber0 === 1)
+        {
+            player0.setVolume(volumeLever3);
+            $volumeBtn[0].style.color = "#9d1e1e"
+            volumeNumber0++
+        }
+        else if (volumeNumber0 === 2)
+        {
+            player0.setVolume(volumeLever1);
+            $volumeBtn[0].style.color = "#5c4e4e"
+
+            volumeNumber0 = 0;
+        }
+        return volumeNumber0;
+    }
+    $volumeBtn[0].addEventListener ("click", volumeBtnClick);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick1 ()
+    {
+        
+        if(volumeNumber1 === 0)
+        {
+            player1.setVolume(volumeLever2);
+            $volumeBtn[1].style.color = "#874444"
+            volumeNumber1++
+        }
+        else if (volumeNumber1 === 1)
+        {
+            player1.setVolume(volumeLever3);
+            $volumeBtn[1].style.color = "#9d1e1e"
+            volumeNumber1++
+        }
+        else if (volumeNumber1 === 2)
+        {
+            player1.setVolume(volumeLever1);
+            $volumeBtn[1].style.color = "#5c4e4e"
+
+            volumeNumber1 = 0;
+        }
+        return volumeNumber1;
+    }
+    $volumeBtn[1].addEventListener ("click", volumeBtnClick1);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick2 ()
+    {
+        
+        if(volumeNumber2 === 0)
+        {
+            player2.setVolume(volumeLever2);
+            $volumeBtn[2].style.color = "#874444"
+            volumeNumber2++
+        }
+        else if (volumeNumber2 === 1)
+        {
+            player2.setVolume(volumeLever3);
+            $volumeBtn[2].style.color = "#9d1e1e"
+            volumeNumber2++
+        }
+        else if (volumeNumber2 === 2)
+        {
+            player2.setVolume(volumeLever1);
+            $volumeBtn[2].style.color = "#5c4e4e"
+
+            volumeNumber2 = 0;
+        }
+        return volumeNumber2;
+    }
+    $volumeBtn[2].addEventListener ("click", volumeBtnClick2);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick3 ()
+    {
+        
+        if(volumeNumber3 === 0)
+        {
+            player3.setVolume(volumeLever2);
+            $volumeBtn[3].style.color = "#874444"
+            volumeNumber3++
+        }
+        else if (volumeNumber3 === 1)
+        {
+            player3.setVolume(volumeLever3);
+            $volumeBtn[3].style.color = "#9d1e1e"
+            volumeNumber3++
+        }
+        else if (volumeNumber3 === 2)
+        {
+            player3.setVolume(volumeLever1);
+            $volumeBtn[3].style.color = "#5c4e4e"
+
+            volumeNumber3 = 0;
+        }
+        return volumeNumber3;
+    }
+    $volumeBtn[3].addEventListener ("click", volumeBtnClick3);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick4 ()
+    {
+        
+        if(volumeNumber4 === 0)
+        {
+            player4.setVolume(volumeLever2);
+            $volumeBtn[4].style.color = "#874444"
+            volumeNumber4++
+        }
+        else if (volumeNumber4 === 1)
+        {
+            player4.setVolume(volumeLever3);
+            $volumeBtn[4].style.color = "#9d1e1e"
+            volumeNumber4++
+        }
+        else if (volumeNumber4 === 2)
+        {
+            player4.setVolume(volumeLever1);
+            $volumeBtn[4].style.color = "#5c4e4e"
+
+            volumeNumber4 = 0;
+        }
+        return volumeNumber4;
+    }
+    $volumeBtn[4].addEventListener ("click", volumeBtnClick4);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick5 ()
+    {
+        
+        if(volumeNumber5 === 0)
+        {
+            player5.setVolume(volumeLever2);
+            $volumeBtn[5].style.color = "#874444"
+            volumeNumber5++
+        }
+        else if (volumeNumber5 === 1)
+        {
+            player5.setVolume(volumeLever3);
+            $volumeBtn[5].style.color = "#9d1e1e"
+            volumeNumber5++
+        }
+        else if (volumeNumber5 === 2)
+        {
+            player5.setVolume(volumeLever1);
+            $volumeBtn[5].style.color = "#5c4e4e"
+
+            volumeNumber5 = 0;
+        }
+        return volumeNumber5;
+    }
+    $volumeBtn[5].addEventListener ("click", volumeBtnClick5);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick6 ()
+    {
+        
+        if(volumeNumber6 === 0)
+        {
+            player6.setVolume(volumeLever2);
+            $volumeBtn[6].style.color = "#874444"
+            volumeNumber6++
+        }
+        else if (volumeNumber6 === 1)
+        {
+            player6.setVolume(volumeLever3);
+            $volumeBtn[6].style.color = "#9d1e1e"
+            volumeNumber6++
+        }
+        else if (volumeNumber6 === 2)
+        {
+            player6.setVolume(volumeLever1);
+            $volumeBtn[6].style.color = "#5c4e4e"
+
+            volumeNumber6 = 0;
+        }
+        return volumeNumber6;
+    }
+    $volumeBtn[6].addEventListener ("click", volumeBtnClick6);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick7 ()
+    {
+        
+        if(volumeNumber7 === 0)
+        {
+            player7.setVolume(volumeLever2);
+            $volumeBtn[7].style.color = "#874444"
+            volumeNumber7++
+        }
+        else if (volumeNumber7 === 1)
+        {
+            player7.setVolume(volumeLever3);
+            $volumeBtn[7].style.color = "#9d1e1e"
+            volumeNumber7++
+        }
+        else if (volumeNumber7 === 2)
+        {
+            player7.setVolume(volumeLever1);
+            $volumeBtn[7].style.color = "#5c4e4e"
+
+            volumeNumber7 = 0;
+        }
+        return volumeNumber7;
+    }
+    $volumeBtn[7].addEventListener ("click", volumeBtnClick7);
+    ////////////////////////////////////////////////////////
+    function volumeBtnClick8 ()
+    {
+        
+        if(volumeNumber8 === 0)
+        {
+            player8.setVolume(volumeLever2);
+            $volumeBtn[8].style.color = "#874444"
+            volumeNumber8++
+        }
+        else if (volumeNumber8 === 1)
+        {
+            player8.setVolume(volumeLever3);
+            $volumeBtn[8].style.color = "#9d1e1e"
+            volumeNumber8++
+        }
+        else if (volumeNumber8 === 2)
+        {
+            player8.setVolume(volumeLever1);
+            $volumeBtn[8].style.color = "#5c4e4e"
+
+            volumeNumber8 = 0;
+        }
+        return volumeNumber8;
+    }
+    $volumeBtn[8].addEventListener ("click", volumeBtnClick8);
+    
 
 
 
@@ -423,7 +1031,7 @@ function lyricsView (id)
         else
         {
             $greatGrandparents.classList.remove("lyrics-open");
-            $el.innerHTML = "가사 보기"; 
+            $el.innerHTML = "가사"; 
         }
     }
 
@@ -519,7 +1127,7 @@ function linesView (id)
                     clearInterval(lineAniTimer);
                 } 
             }
-            var lineAniTimer = setInterval(addLineAni, 800)
+            var lineAniTimer = setInterval(addLineAni, 1300)
         }
 
     }
