@@ -1,3 +1,44 @@
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player1;
+
+
+function onYouTubeIframeAPIReady()
+{
+    player1 = new YT.Player('track1',
+    {
+        width: '100%',
+        height: '100%',
+        videoId: 'cuk39tu10tc',
+        playerVars:
+        {
+            controls: 1,
+            autoplay: 0,
+            disablekb: 1,
+            iv_load_policy: 3,
+            loop: 0,
+            playlist: 'cuk39tu10tc',
+            modestbranding: 1,
+            playsinline: 1,
+            showinfo: 1,
+        },
+        events:
+        {
+            onReady: initialize
+        }
+    });
+           
+}
+function initialize()
+{
+    player1.mute();
+}
+
+
+
 /*header*/
 var $headerGallery = document.getElementById("header-image-gallery");
 var $headerImage = $headerGallery.querySelectorAll(".header-image");
@@ -69,7 +110,7 @@ function addSelected ()
                     if (l < $twoDepthItem.length)
                     {
                     $twoDepthItem[l].classList.add("ani");
-                    console.log("2")
+                    //console.log("2")
                     }
                     else
                     {clearInterval(menuAni);}
@@ -385,6 +426,9 @@ function lyricsView (id)
             $el.innerHTML = "가사 보기"; 
         }
     }
+
+    /*동영상*/
+
 ////////////////////////////////////////////////////////
     function languageChoiceKo ()
     {
